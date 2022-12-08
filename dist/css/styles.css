@@ -1,0 +1,386 @@
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1.7rem;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+textarea {
+  resize: none;
+  border: none;
+  outline: none;
+}
+
+.primary__btn, .text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .forget__Btn, .text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .remembered__Btn, .text__wrapper__flex .text__wrapper .text__container .detail__card .answer__Btn, .text__wrapper__flex .text__wrapper .text__container .create__card .edit__save__Btn, .text__wrapper__flex .text__wrapper .text__container .create__card .decision {
+  display: block;
+  font-size: 20px;
+  background-color: #6564db;
+  padding: 5px 10px 5px 10px;
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid #6564db;
+  cursor: pointer;
+}
+.primary__btn:hover, .text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .forget__Btn:hover, .text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .remembered__Btn:hover, .text__wrapper__flex .text__wrapper .text__container .detail__card .answer__Btn:hover, .text__wrapper__flex .text__wrapper .text__container .create__card .edit__save__Btn:hover, .text__wrapper__flex .text__wrapper .text__container .create__card .decision:hover, .primary__btn:focus, .text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .forget__Btn:focus, .text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .remembered__Btn:focus, .text__wrapper__flex .text__wrapper .text__container .detail__card .answer__Btn:focus, .text__wrapper__flex .text__wrapper .text__container .create__card .edit__save__Btn:focus, .text__wrapper__flex .text__wrapper .text__container .create__card .decision:focus {
+  background-color: white;
+  color: #6564db;
+  border: 1px solid #6564db;
+}
+
+.card__base, .text__wrapper__flex .text__wrapper .text__container .detail__card, .text__wrapper__flex .text__wrapper .text__container .create__card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+.card__base.off, .text__wrapper__flex .text__wrapper .text__container .off.detail__card, .text__wrapper__flex .text__wrapper .text__container .off.create__card {
+  z-index: -1000;
+  position: absolute;
+}
+
+.header__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: white;
+}
+.header__wrapper .ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__wrapper .ul .logo__wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.header__wrapper .ul .logo__wrapper .logo {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+.header__wrapper .ul .logo__wrapper .title {
+  font-size: xx-large;
+  color: #6564db;
+}
+.header__wrapper .ul .sub__menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header__wrapper .ul .sub__menu a {
+  font-size: large;
+}
+
+main {
+  background-color: #89d2dc;
+  padding: 120px 0 20px 0;
+  height: calc(100vh - 140px);
+}
+@media (min-width: 600px) {
+  main {
+    padding: 120px 20px 20px 20px;
+  }
+}
+main .title__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+main .title__row li {
+  width: 25%;
+  white-space: nowrap;
+}
+main .contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5vh;
+}
+@media (min-width: 600px) {
+  main .contents {
+    padding-top: 0;
+  }
+}
+main .contents ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 60vh;
+  max-height: 70vh;
+  overflow: scroll;
+  width: 100vw;
+  max-width: 600px;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  main .contents ul {
+    border: 5px solid #eee;
+    border-radius: 4px;
+    min-height: 60vh;
+    max-height: 60vh;
+    overflow: scroll;
+    padding: 20px;
+    width: 50vw;
+  }
+}
+main .contents ul .taskAddBtn {
+  padding: 5px 15px;
+  background-color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+}
+main .contents ul .taskAddBtn:hover {
+  background-color: black;
+  color: white;
+}
+main .contents ul .card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  margin: 0 auto;
+  width: 80%;
+  min-height: 100px;
+  max-height: 200px;
+  overflow: scroll;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+main .contents ul .card:hover {
+  background-color: #eee;
+}
+main .contents ul .card svg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  stroke: green;
+  visibility: hidden;
+}
+main .contents ul .card svg.on {
+  visibility: visible;
+}
+
+.cover__gray.on {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.text__wrapper__flex {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: -1000;
+  top: 0;
+  left: 0;
+  transform: translate(-100%, 0);
+}
+.text__wrapper__flex.on {
+  transform: translate(0, 0);
+  opacity: 1;
+  z-index: 1000;
+}
+.text__wrapper__flex .text__wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.text__wrapper__flex .text__wrapper .text__container {
+  width: 80vw;
+  max-width: 1000px;
+  min-height: 55vh;
+  background-color: white;
+  padding: 20px;
+  padding-top: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  position: relative;
+}
+@media (min-width: 600px) {
+  .text__wrapper__flex .text__wrapper .text__container {
+    padding: 20px;
+  }
+}
+.text__wrapper__flex .text__wrapper .text__container .update__remove__container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  z-index: 1000;
+}
+.text__wrapper__flex .text__wrapper .text__container .update__remove__container button {
+  display: block;
+  flex-direction: row;
+  visibility: visible;
+  position: relative;
+}
+.text__wrapper__flex .text__wrapper .text__container .update__remove__container button.off {
+  position: absolute;
+  visibility: hidden;
+  z-index: -100;
+}
+.text__wrapper__flex .text__wrapper .text__container .update__remove__container button svg {
+  transition: all 0.3s ease;
+}
+.text__wrapper__flex .text__wrapper .text__container .update__remove__container button:hover svg, .text__wrapper__flex .text__wrapper .text__container .update__remove__container button:focus svg {
+  stroke: #ccc;
+}
+.text__wrapper__flex .text__wrapper .text__container .create__card .textarea__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  visibility: visible;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
+}
+@media (min-width: 600px) {
+  .text__wrapper__flex .text__wrapper .text__container .create__card .textarea__container {
+    flex-direction: row;
+  }
+}
+.text__wrapper__flex .text__wrapper .text__container .create__card .textarea__container.off {
+  z-index: -1000;
+  visibility: hidden;
+  position: absolute;
+}
+.text__wrapper__flex .text__wrapper .text__container .create__card .textarea__container .textarea__wrapper {
+  padding: 20px;
+  width: 80%;
+  min-height: 40vh;
+  height: 40vh;
+  font-size: 32px;
+  line-height: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 600px) {
+  .text__wrapper__flex .text__wrapper .text__container .create__card .textarea__container .textarea__wrapper {
+    width: 35%;
+  }
+}
+.text__wrapper__flex .text__wrapper .text__container .create__card .textarea__container .textarea__wrapper div {
+  padding-bottom: 20px;
+}
+.text__wrapper__flex .text__wrapper .text__container .create__card .textarea__container .textarea__wrapper textarea {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  height: 35vh;
+  font-size: 32px;
+  line-height: 3rem;
+}
+.text__wrapper__flex .text__wrapper .text__container .create__card .decision.mt-20 {
+  margin-top: 20px;
+}
+.text__wrapper__flex .text__wrapper .text__container .create__card .edit__save__Btn.mt-20 {
+  margin-top: 20px;
+}
+.text__wrapper__flex .text__wrapper .text__container .detail__card {
+  align-items: center;
+}
+.text__wrapper__flex .text__wrapper .text__container .detail__card .contents {
+  width: 100%;
+  min-height: 40vh;
+  height: 40vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  line-height: 3rem;
+  gap: 20px;
+  font-size: 32px;
+}
+.text__wrapper__flex .text__wrapper .text__container .detail__card .answer__Btn.off {
+  z-index: -1000;
+  position: absolute;
+}
+.text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (min-width: 600px) {
+  .text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container {
+    flex-direction: row;
+  }
+}
+.text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .remembered__Btn.off {
+  z-index: -1000;
+  position: absolute;
+}
+.text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .forget__Btn {
+  background-color: red;
+  border-color: red;
+}
+.text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .forget__Btn:hover, .text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .forget__Btn:focus {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+}
+.text__wrapper__flex .text__wrapper .text__container .detail__card .Btn__container .forget__Btn.off {
+  z-index: -1000;
+  position: absolute;
+}
+
+.base__line__height {
+  line-height: 3rem;
+  overflow: scroll;
+  max-height: 20vh vh;
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 8px;
+  margin: auto 0;
+  padding: 20px;
+}/*# sourceMappingURL=styles.css.map */

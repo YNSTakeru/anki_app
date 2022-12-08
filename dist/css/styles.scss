@@ -1,0 +1,455 @@
+$third-color: white;
+$secondary-color: #89d2dc;
+$primary-color: #6564db;
+$card-content-font-size: 32px;
+$card-content-height: 40vh;
+@use "mq" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.7rem;
+}
+li {
+    list-style: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+}
+
+textarea {
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+.primary__btn {
+    display: block;
+    font-size: 20px;
+    background-color: $primary-color;
+    padding: 5px 10px 5px 10px;
+    color: $third-color;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid $primary-color;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: $third-color;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+    }
+}
+
+.card__base {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+
+    &.off {
+        z-index: -1000;
+        position: absolute;
+    }
+}
+
+.header__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+
+    background-color: $third-color;
+
+    & .ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: center;
+
+        & .logo__wrapper {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+
+            & .logo {
+                display: block;
+                width: 40px;
+                height: 40px;
+            }
+
+            & .title {
+                font-size: xx-large;
+                color: $primary-color;
+            }
+        }
+
+        & .sub__menu {
+            display: flex;
+            align-items: center;
+
+            gap: 20px;
+
+            & a {
+                font-size: large;
+            }
+        }
+    }
+}
+
+main {
+    background-color: $secondary-color;
+    padding: 120px 0 20px 0;
+    height: calc(100vh - 140px);
+
+    @include mq(md) {
+        padding: 120px 20px 20px 20px;
+    }
+
+    .title__row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        li {
+            width: 25%;
+            white-space: nowrap;
+        }
+    }
+
+    .contents {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5vh;
+
+        @include mq(md) {
+            padding-top: 0;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 60vh;
+            max-height: 70vh;
+            overflow: scroll;
+
+            @include mq(md) {
+                border: 5px solid #eee;
+                border-radius: 4px;
+                min-height: 60vh;
+                max-height: 60vh;
+                overflow: scroll;
+                padding: 20px;
+                width: 50vw;
+            }
+
+            // padding: 20px;
+            width: 100vw;
+            max-width: 600px;
+            text-align: center;
+
+            .taskAddBtn {
+                padding: 5px 15px;
+                background-color: $third-color;
+
+                border-radius: 8px;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                position: relative;
+
+                &:hover {
+                    background-color: black;
+                    color: white;
+                }
+            }
+
+            .card {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                padding: 10px;
+                margin: 0 auto;
+                width: 80%;
+                min-height: 100px;
+                max-height: 200px;
+                overflow: scroll;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border-radius: 8px;
+
+                &:hover {
+                    background-color: #eee;
+                }
+
+                & svg {
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    stroke: green;
+                    visibility: hidden;
+
+                    &.on {
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cover__gray.on {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.text__wrapper__flex {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: -1000;
+    top: 0;
+    left: 0;
+    transform: translate(-100%, 0);
+
+    &.on {
+        transform: translate(0, 0);
+        opacity: 1;
+        z-index: 1000;
+    }
+
+    & .text__wrapper {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+
+        & .text__container {
+            width: 80vw;
+            max-width: 1000px;
+            min-height: 55vh;
+            background-color: $third-color;
+            padding: 20px;
+            padding-top: 55px;
+
+            @include mq(md) {
+                padding: 20px;
+            }
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            flex-direction: column;
+            position: relative;
+
+            & .update__remove__container {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                z-index: 1000;
+
+                & button {
+                    display: block;
+                    flex-direction: row;
+                    visibility: visible;
+                    position: relative;
+
+                    &.off {
+                        position: absolute;
+                        visibility: hidden;
+                        z-index: -100;
+                    }
+
+                    & svg {
+                        transition: all 0.3s ease;
+                    }
+
+                    &:hover svg,
+                    &:focus svg {
+                        stroke: #ccc;
+                    }
+                }
+            }
+
+            & .create__card {
+                @extend .card__base;
+
+                & .textarea__container {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    z-index: 100;
+                    visibility: visible;
+                    position: relative;
+
+                    @include mq(md) {
+                        flex-direction: row;
+                    }
+
+                    &.off {
+                        z-index: -1000;
+                        visibility: hidden;
+                        position: absolute;
+                    }
+
+                    justify-content: space-evenly;
+                    align-items: center;
+
+                    & .textarea__wrapper {
+                        padding: 20px;
+                        width: 80%;
+                        @include mq(md) {
+                            width: 35%;
+                        }
+
+                        min-height: $card-content-height;
+                        height: $card-content-height;
+                        font-size: $card-content-font-size;
+                        line-height: 1.7rem;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+
+                        & div {
+                            padding-bottom: 20px;
+                        }
+
+                        & textarea {
+                            border: 1px solid black;
+                            border-radius: 8px;
+                            padding: 20px;
+                            width: 100%;
+                            height: 35vh;
+                            font-size: $card-content-font-size;
+                            line-height: 3rem;
+                        }
+                    }
+                }
+
+                & .decision {
+                    @extend .primary__btn;
+
+                    &.mt-20 {
+                        margin-top: 20px;
+                    }
+                }
+
+                & .edit__save__Btn {
+                    @extend .primary__btn;
+
+                    &.mt-20 {
+                        margin-top: 20px;
+                    }
+                }
+            }
+
+            & .detail__card {
+                @extend .card__base;
+                align-items: center;
+
+                .contents {
+                    width: 100%;
+                    min-height: $card-content-height;
+                    height: $card-content-height;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    flex-direction: column;
+                    line-height: 3rem;
+                    gap: 20px;
+                    font-size: $card-content-font-size;
+                }
+
+                & .answer__Btn {
+                    @extend .primary__btn;
+
+                    &.off {
+                        z-index: -1000;
+                        position: absolute;
+                    }
+                }
+
+                & .Btn__container {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 50%;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    @include mq(md) {
+                        flex-direction: row;
+                    }
+
+                    & .remembered__Btn {
+                        @extend .primary__btn;
+
+                        &.off {
+                            z-index: -1000;
+                            position: absolute;
+                        }
+                    }
+
+                    & .forget__Btn {
+                        @extend .primary__btn;
+                        background-color: red;
+                        border-color: red;
+
+                        &:hover,
+                        &:focus {
+                            background-color: $third-color;
+                            color: red;
+                            border: 1px solid red;
+                        }
+
+                        &.off {
+                            z-index: -1000;
+                            position: absolute;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.base__line__height {
+    line-height: 3rem;
+    overflow: scroll;
+    max-height: 20vh vh;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 8px;
+    margin: auto 0;
+    padding: 20px;
+}
